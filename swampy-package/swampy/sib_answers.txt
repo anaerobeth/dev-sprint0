@@ -1,35 +1,37 @@
 # Text answers from Week 0
 
-# Name:
+# Name: Elizabeth Tenorio
 
 
 
 Explain what each of the following lines does. Use the terminology you learned from the book (or Google)
-	
+
 	from TurtleWorld import *
 	world = TurtleWorld()
 	bob = Turtle()
 	wait_for_user()
 
 Answer:
-
-
-
+Line 1 imports all functions from the module TurtleWorld which allows the functions to be called without using dot notation.
+Line 2 creates a TurtleWorld assigned to world.
+Line 3 creates "bob", an an instance of a Turtle as defined in module TurtleWorld.
+Line 4 tells TurtleWorld to wait for the user to do something.
 
 
 
 These questions pertain to the program you wrote in Week0.
 
 -- What are the arguments of polygon()?  What type is each argument?
-Answer:
+Answer: The arguments and their types are:
+turtle (object of class turtle.Turtle), length (positive number, int), and number of sides "n" (positive int)
 
 -- What two turtle functions did you use to draw the sides of the polygon?
-Answer:
+Answer: fd() and lt()
+
 
 -- What are the arguments for polyline?  What type is each argument?
-Answer:
-
-
+Answer:The arguments and their types are:
+turtle(object of class turtle.Turtle), length (positive number, int), angle (positive number, float), and number of sides "n" (positive number, int)
 
 
 
@@ -37,9 +39,19 @@ Suppose you wrote a function, center_circle(), that draws a circle of a given ra
 
 -- What turtle functions would you use to move the turtle from the center to the edge of the circle and get ready to call the original circle() function?
 Answer:
+pu(bob)
+fd(bob, radius)
+lt(bob)
+pd(bob)
+
 
 -- Suppose the interface of this function requires the turtle to end up in the same place it started, facing in the same direction it started.
 Answer:
+pu(bob)
+lt(bob)
+fd(bob, radius)
+lt(bob, 180)
+pd(bob)
 
 -- What is this type of requirement called?
-Answer:
+Answer: postcondition

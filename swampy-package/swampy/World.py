@@ -19,22 +19,22 @@ from Gui import Gui
 
 class World(Gui):
     """Represents the environment where Animals live.
-    
-    A World usually includes a canvas, where animals are drawn, 
+
+    A World usually includes a canvas, where animals are drawn,
     and sometimes a control panel.
     """
     current_world = None
 
-    def __init__(self, delay=0.5, *args, **kwds):
+    def __init__(self, delay=0.0, *args, **kwds):
         Gui.__init__(self, *args, **kwds)
         self.delay = delay
         self.title('World')
-        
+
         # keep track of the most recent world
         World.current_world = self
 
         # set to False when the user presses quit.
-        self.exists = True    
+        self.exists = True
 
         # list of animals that live in this world.
         self.animals = []
@@ -53,7 +53,7 @@ class World(Gui):
 
         # destroy closes the window
         self.destroy()
-        
+
         # quit terminates mainloop (but since mainloop can get called
         # recursively, quitting once might not be enough!)
         Gui.quit(self)
@@ -104,7 +104,7 @@ class World(Gui):
         """Invoke the step method on every animal."""
         for animal in self.animals:
             animal.step()
-        
+
     def run(self):
         """Invoke step intermittently until the user presses Quit or Stop."""
         self.running = True
@@ -126,11 +126,11 @@ class World(Gui):
 
     def make_interpreter(self, gs=None):
         """Makes an interpreter for this world.
-        
+
         Creates an attribute named inter.
         """
         self.inter = Interpreter(self, gs)
-        
+
     def run_text(self):
         """Executes the code from the TextEntry in the control panel.
 
@@ -141,7 +141,7 @@ class World(Gui):
 
     def run_file(self):
         """Read the code from the filename in the entry and runs it.
-        
+
         Precondition: self must have an Interpreter and a filename entry.
         """
         filename = self.en_file.get()
@@ -160,11 +160,11 @@ class Interpreter(object):
             self.globals = globals()
         else:
             self.globals = gs
-            
+
     def run_code_thread(self, *args):
         """Runs the given code in a new thread."""
         return MyThread(self.run_code, *args)
-        
+
     def run_code(self, source, filename):
         """Runs the given code in the saved environment."""
         code = compile(source, filename, 'exec')
@@ -250,7 +250,7 @@ class Animal(object):
 
     def polar(self, x, y, r, theta):
         """Converts polar coordinates to cartesian.
-        
+
         Args:
             x, y: location of the origin
             r: radius
@@ -262,7 +262,7 @@ class Animal(object):
         rad = theta * math.pi/180
         s = math.sin(rad)
         c = math.cos(rad)
-        return [ x + r * c, y + r * s ]         
+        return [ x + r * c, y + r * s ]
 
 
 def wait_for_user():
