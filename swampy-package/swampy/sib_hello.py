@@ -41,8 +41,8 @@ def letter_pos_e(turtle):
   fd(turtle, 80)
   pd(turtle)
 
-#move to start of letter L
-def letter_pos_l(turtle):
+#move to start of letter
+def letter_pos(turtle):
   pu(bob)
   fd(bob, 20)
   lt(bob)
@@ -86,11 +86,11 @@ start_pos(bob)
 write_h(bob)
 letter_pos_e(bob)
 write_e(bob)
-letter_pos_l(bob)
+letter_pos(bob)
 write_l(bob)
-letter_pos_l(bob)
+letter_pos(bob)
 write_l(bob)
-letter_pos_l(bob)
+letter_pos(bob)
 write_o(bob)
 
 
